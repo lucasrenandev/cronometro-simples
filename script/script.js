@@ -34,7 +34,7 @@ function parar() {
     time.innerHTML = "00:00:00"
 }
 
-// FUNÇAÕ ADICIONAR Nº 0
+// FUNÇÃO ADICIONAR Nº 0
 function adicionarZero(numero) {
     if(numero < 10) {
         return '0' + numero
