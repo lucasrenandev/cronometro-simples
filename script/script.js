@@ -62,5 +62,5 @@ function contador() {
         }
     }
 
-    time.innerHTML = adicionarZero(horas) + ':' + adicionarZero(minutos) + ':' + adicionarZero(segundos) + ':' + adicionarZero(milisegundos)
+    time.innerHTML = adicionarZero(horas) + ':' + adicionarZero(minutos) + ':' + adicionarZero(segundos) + ':' + milisegundos
 }
