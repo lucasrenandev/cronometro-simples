@@ -8,6 +8,7 @@ congelar.addEventListener('click', pausar)
 const interromper = document.querySelector("#parar")
 interromper.addEventListener('click', parar)
 
+let milisegundos = 0
 let segundos = 0
 let minutos = 0
 let horas = 0
@@ -16,8 +17,9 @@ let time = document.querySelector("#time")
 
 // FUNÇÃO INICIAR
 function iniciar() {
+    pausar()
     contador()
-    interval = setInterval(contador, 1000)
+    interval = setInterval(contador, 10)
 }
 
 // FUNÇÃO PAUSAR 
@@ -28,10 +30,11 @@ function pausar() {
 // FUNÇÃO PARAR 
 function parar() {
     clearInterval(interval)
+    milisegundos = 0
     segundos = 0
     minutos = 0
     horas = 0
-    time.innerHTML = "00:00:00"
+    time.innerHTML = "00:00:00:000"
 }
 
 // FUNÇÃO ADICIONAR Nº 0
@@ -46,15 +49,18 @@ function adicionarZero(numero) {
 
 // FUNÇÃO CONTADOR
 function contador() {
-    segundos++
-    if(segundos === 60) {
-        minutos ++
-        segundos = 0
-        if(minutos === 60) {
-            horas ++
-            minutos = 0
+    if((milisegundos += 10) === 1000) {
+        segundos ++
+        milisegundos = 0
+        if(segundos === 60) {
+            minutos ++
+            segundos = 0
+            if(minutos === 60) {
+                horas ++
+                minutos = 0
+            }
         }
     }
 
-    time.innerHTML = adicionarZero(horas) + ':' + adicionarZero(minutos) + ':' + adicionarZero(segundos)
+    time.innerHTML = adicionarZero(horas) + ':' + adicionarZero(minutos) + ':' + adicionarZero(segundos) + ':' + adicionarZero(milisegundos)
 }
