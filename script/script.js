@@ -18,7 +18,6 @@ let time = document.querySelector("#time")
 // FUNÇÃO INICIAR
 function iniciar() {
     pausar()
-    contador()
     interval = setInterval(contador, 10)
 }
 
